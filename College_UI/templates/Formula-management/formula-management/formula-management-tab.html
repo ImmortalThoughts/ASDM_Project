@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="templates/Formula-management/formula-management/formula-management-tab.css" />
+<script src="templates/Formula-management/formula-management/formula-management-tab.js"></script>
+<div class="col-md-12 Formulamanagement-tabb">
+    <div class="col-md-12">
+       
+        <div class="row">
+            <div class="col-md-12 card-col">
+
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <input type="text" class="searchInput" id="SearchInput" placeholder="Search for Tag"
+                                    title="Type in a name">
+                                <input type="button" class="btn btn-primary" id="searchSysConfing" value="Search">
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-2"><input type="button" id="addNewEntry1" class="btn btn-primary" value="Add Student"
+                                    style="float: right;" onclick="addNewEntry()"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card mt-4">
+                        <div class="overflow tableheight">
+                            <table id="datatablesCalculatedTag" class="DataTable " style="table-layout: fixed">
+                                <thead style="top: 0; position: sticky;">
+                                    <tr>
+                                        <th style="width: 9vw;">PRN number</th>
+                                        <th>Roll Number</th>
+                                        <th>Student Name</th>
+                                        <th style="width: 8vw;">Contact No.</th>
+                                        <th>Address</th>
+                                        <th style="width: 5vw;">Field</th>
+                                        <th style="width: 9vw;">Delete</th>
+                                        <th id="tableEditCol" style="width: 5vw;">Edit</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="bodytablesCalculatedTag" class="DataTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="footer">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal" id="updateRow">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3>Update Student Data</h3>
+                </div>
+                <div class="col-md-2"><button style="margin-top: 20px; margin-bottom: 10px;"
+                        class="close">&times;</button></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">PRN Number:</label></div>
+                <div class="col-md-10"> <input type="text" id="prnnumber" class="form-control" readonly></div>
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Address :</label></div>
+                <div class="col-md-10"> <textarea id="address" class="form-control"></textarea></div>
+            </div>
+            <label id="ERRORFormula1" style="color: red;"></label>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Roll Number:</label></div>
+                <div class="col-md-10"> <input type="text" id="rollnumber" class="form-control"></div>
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Student Name</label></div>
+                <div class="col-md-10"> <input type="text" id="studentname" class="form-control"></div>
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Contact Number:</label></div>
+                <div class="col-md-10"> <input type="text" id="contactnumber" class="form-control" readonly></div>
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Branch:</label></div>
+                <div class="col-md-10"> <input type="text" id="branch" class="form-control"></div>
+            </div>
+            <div class="row">
+                <input type="button" class="btn" value="Save" id="updateRowBtn"
+                    style="background-color: blueviolet; width: 109px; margin-top: 20px; position: relative; left: 50%; color: white; font-size: 20px;">
+            </div>
+            <div class="row"><label id="ERRORConfig1" style="color: red;"></label></div>
+
+        </div>
+    </div>
+    <div class="modal" id="addRowData">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 style="position: relative; left: 50%;">Add New Student Data</h3>
+                </div>
+                <div class="col-md-2"><button class="close1">&times;</button></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">PRN Number :</label></div>
+
+                <div class="col-md-10"> <input type="text" id="prnnumberAdd" class="form-control"></div>
+            </div>
+
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Address:</label></div>
+
+                <div class="col-md-10"> <textarea id="addressAdd" class="form-control" rows="4"></textarea></div>
+            </div>
+            <label id="ERRORformula" style="color: red;"></label>
+            <div class="row" style="margin-top: 10px;">
+
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Roll Number:</label></div>
+
+                <div class="col-md-10"> <input type="text" id="rollnumberAdd" class="form-control"></div>
+
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Student Name</label></div>
+
+                <div class="col-md-10"> <input type="text" id="studentnameAdd" class="form-control"></div>
+
+
+            </div>
+            <div class="row" style="margin-top: 14px;">
+                <div class="col-md-2" style="font-size: 21px;"> <label for="">Contact Number:</label></div>
+
+                <div class="col-md-10"> <input type="text" id="contactnumberAdd" class="form-control"></div>
+
+
+            </div>
+           
+            <div class="row" style="margin-top: 14px;">
+                <input type="button" class="btn " value="Add New" id="addNewData" onclick="addNewData()"
+                    style="background-color: blueviolet; width: 109px; margin-top: 20px; color: white; position: relative; left: 50%; font-size: 20px;">
+            </div>
+            <div class="row"><label id="ERRORconfig" style="color: red;"></label></div>
+        </div>
+    </div>
+
+  
+</div>
